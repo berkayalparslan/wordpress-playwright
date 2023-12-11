@@ -7,7 +7,7 @@ export enum PreviewMenuItems {
   Mobile,
 }
 
-export default class NewPostPage {
+export default class PostEditorPage {
   readonly page: Page;
   readonly titleEl: Locator;
   readonly blockEl: Locator;
@@ -29,7 +29,7 @@ export default class NewPostPage {
       .getByLabel("Add title");
     this.blockEl = page
       .frameLocator('iframe[name="editor-canvas"]')
-      .getByLabel("Add default block");
+      .locator('div.wp-block-post-content');
     this.publishBtn = page.getByRole("button", {
       name: "Publish",
       exact: true,
@@ -52,12 +52,20 @@ export default class NewPostPage {
   }
 
   //#region input methods
-  async enterTitle(title: string) {
+  async fillTitle(title: string) {
     await this.titleEl.pressSequentially(title);
   }
 
-  async enterBlock(block: string) {
+  async clearTitle(){
+    await this.titleEl.clear();
+  }
+
+  async fillEmptyBlock(block: string) {
     await this.blockEl.pressSequentially(block);
+  }
+
+  async clearFilledBlock(){
+    await this.blockEl.clear();
   }
   //#endregion
 
