@@ -29,7 +29,7 @@ export default class PostEditorPage {
       .getByLabel("Add title");
     this.blockEl = page
       .frameLocator('iframe[name="editor-canvas"]')
-      .locator('div.wp-block-post-content');
+      .locator('div.wp-block-post-content p').first();
     this.publishBtn = page.getByRole("button", {
       name: "Publish",
       exact: true,
