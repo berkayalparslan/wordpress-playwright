@@ -62,7 +62,6 @@ test.describe("CRUD - Post", () => {
 
   test.describe('UPDATE @post @update', () => {
     test("update a post @happy", async ({ page }) => {
-      const postsPage = new PostsPage(page);
       const postEditorPage = new PostEditorPage(page);
   
       await page.locator("li#menu-posts").click();

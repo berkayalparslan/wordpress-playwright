@@ -2,8 +2,8 @@
 import { test, expect } from '@playwright/test';
 
 
-const userName = process.env.USER_NAME as string;
-const userPassword = process.env.USER_PASSWORD as string;
+const userName: string = process.env.USER_NAME!;
+const userPassword: string = process.env.USER_PASSWORD!;
 
 test.use({storageState: {cookies: [], origins: []}});
 
