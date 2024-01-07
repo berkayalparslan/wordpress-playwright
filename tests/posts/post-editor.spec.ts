@@ -1,7 +1,7 @@
 // @ts-check
 import { test, expect } from "@playwright/test";
-import PostEditorPage, { PreviewMenuItems } from "../../pages/post-editor-page";
-import PostsPage from "../../pages/posts-page";
+import PostEditorPage, { PreviewMenuItems } from "../../pages/posts/post-editor-page";
+import PostsPage from "../../pages/posts/posts-page";
 
 const newPost = {
   title: "new post title",
