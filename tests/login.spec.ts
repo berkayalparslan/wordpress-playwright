@@ -5,6 +5,8 @@ import { test, expect } from '@playwright/test';
 const userName = process.env.USER_NAME as string;
 const userPassword = process.env.USER_PASSWORD as string;
 
+test.use({storageState: {cookies: [], origins: []}});
+
 test.describe('login page', () => {
     test.beforeEach(async({page}) => {
         await page.goto(`/wp-admin`);
